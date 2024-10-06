@@ -1,0 +1,26 @@
+# Ignore all hidden files and system directories
+.gitconfig
+.lc/
+.lesshst
+.node_repl_history
+.viminfo
+.vscode/
+AppData/
+Contacts/
+DBMS/
+Downloads/
+Favorites/
+IntelGraphicsProfiles/
+Links/
+Music/
+OneDrive/
+Saved Games/
+Searches/
+Videos/
+node_modules/
+NTUSER.DAT*
+ntuser.dat.LOG*
+ntuser.ini
+
+# Other system or irrelevant files
+*.log
