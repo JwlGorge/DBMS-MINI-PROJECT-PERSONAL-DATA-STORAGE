@@ -1,16 +1,20 @@
-var mongoose= require('mongoose');
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+
+// Load environment variables from .env file
+dotenv.config();
 
 const connectDB = async () => {
     try {
-        await mongoose.connect('mongodb+srv://jewel:jewel@dbma.umqhd.mongodb.net/?retryWrites=true&w=majority&appName=Dbma', {
+        await mongoose.connect(process.env.MONGODB_URI, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });
         console.log('MongoDB Connected successfully');
     } catch (err) {
-        console.error(err.message,'hey not connecting');
+        console.error('Error connecting to MongoDB:', err.message);
         process.exit(1);
     }
 };
 
-module.exports =connectDB;
+module.exports = connectDB;
