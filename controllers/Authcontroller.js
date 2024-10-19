@@ -2,6 +2,7 @@ require('dotenv').config(); // Load environment variables
 
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+const User = require('../models/User');
 
 const JWT_SECRET = process.env.JWT_SECRET; // Get secret key from .env
 
@@ -42,7 +43,7 @@ exports.authenticateUser = async (req, res) => {
             return res.status(401).json({ message: 'Invalid mobile number or password' });
         }
 
-        const token = jwt.sign({ userId: user._id, mobile: user.mobile }, JWT_SECRET, { expiresIn: '1h' });
+        const token = jwt.sign({ userId: user._id, mobile: user.mobile }, JWT_SECRET, { expiresIn: '7d' });
 
         res.status(200).json({ message: 'Authentication successful', token });
     } catch (error) {

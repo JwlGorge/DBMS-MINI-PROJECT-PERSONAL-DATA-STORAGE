@@ -17,6 +17,7 @@ const biodataSchema = new mongoose.Schema({
     fatherName: { type: String, required: true },
     motherName: { type: String, required: true },
     siblingcount: { type: Number },
+    userId: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'User' }, // Add userId field
     // Add more fields as necessary
 });
 

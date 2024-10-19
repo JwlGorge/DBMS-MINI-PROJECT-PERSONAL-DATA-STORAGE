@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const authRoutes = require('./routes/auth');
+const biodataRoutes = require('./routes/Biodataroute');
 
 const app = express();
 
@@ -24,6 +25,7 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
 
 // Use routes
 app.use('/api/auth', authRoutes); // Authentication routes
+app.use('/api', biodataRoutes); // Ensure this line is present
 
 // Start the server
 const PORT = process.env.PORT || 5000;
