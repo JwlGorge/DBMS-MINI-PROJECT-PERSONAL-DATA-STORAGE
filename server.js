@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const authRoutes = require('./routes/auth');
 const biodataRoutes = require('./routes/Biodataroute');
+const bankRoutes = require('./routes/Bankroute'); 
+const educationRoutes=require('./routes/Educationalroute');
 
 const app = express();
 
@@ -14,7 +16,7 @@ app.use(express.json()); // To parse JSON bodies
 
 // Check if environment variables are set
 if (!process.env.MONGODB_URI) {
-  console.error('Error: MONGODB_URI is not set in .env file.');
+  console.error('Error: MONGODB_URI is not set in the .env file.');
   process.exit(1);
 }
 
@@ -24,8 +26,10 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
   .catch(err => console.error('MongoDB connection error:', err));
 
 // Use routes
-app.use('/api/auth', authRoutes); // Authentication routes
-app.use('/api', biodataRoutes); // Ensure this line is present
+app.use('/api/auth', authRoutes);
+app.use('/api/biodata', biodataRoutes); // This is biodata-specific
+app.use('/api/bank', bankRoutes); // Now using /api/bank route
+app.use('/api/edu',educationRoutes);
 
 // Start the server
 const PORT = process.env.PORT || 5000;

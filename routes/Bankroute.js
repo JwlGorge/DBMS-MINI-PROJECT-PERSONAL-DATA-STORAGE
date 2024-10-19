@@ -1,11 +1,17 @@
 const express = require('express');
-const app = express.Router();
-const bankController = require('../controllers/Bankcontroller'); // Adjust the path as necessary
+const router = express.Router();
+const bankController = require('../controllers/Bankcontroller');
 
-// Route to create bank details
-app.post('/', bankController.createBankDetails);
+// Route to create or update bank details
+router.post('/bankdetail', bankController.createOrUpdateBankDetails);
 
 // Route to get all bank details
-app.get('/', bankController.getAllBankDetails);
+router.get('/bankdetail', bankController.getAllBankDetails);
 
-module.exports = app;
+// Route to edit a bank account
+router.put('/bankdetail/edit', bankController.editBankAccount);
+
+// Route to delete a bank account
+router.delete('/bankdetail/delete', bankController.deleteBankAccount);
+
+module.exports = router;
