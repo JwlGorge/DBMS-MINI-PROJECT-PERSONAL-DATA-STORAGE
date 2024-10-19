@@ -21,6 +21,6 @@ node_modules/
 NTUSER.DAT*
 ntuser.dat.LOG*
 ntuser.ini
-
+.env
 # Other system or irrelevant files
 *.log
