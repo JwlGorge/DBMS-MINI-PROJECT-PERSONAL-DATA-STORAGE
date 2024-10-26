@@ -5,6 +5,7 @@ const authRoutes = require('./routes/auth');
 const biodataRoutes = require('./routes/Biodataroute');
 const bankRoutes = require('./routes/Bankroute'); 
 const educationRoutes=require('./routes/Educationalroute');
+const health=require('./routes/Healthroute');
 
 const app = express();
 
@@ -30,6 +31,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/biodata', biodataRoutes); // This is biodata-specific
 app.use('/api/bank', bankRoutes); // Now using /api/bank route
 app.use('/api/edu',educationRoutes);
+app.use('/api/health',health);
 
 // Start the server
 const PORT = process.env.PORT || 5000;
